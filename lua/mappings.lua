@@ -36,7 +36,7 @@ nnoremap('<localleader>w', ':set wrap!<CR>', {noremap = true, silent = true}, 0)
 nnoremap('<C-s>', ':w<CR>')
 
 -- Fast quit
-nnoremap('<C-q', ':q<CR>')
+nnoremap('<C-q>', ':q<CR>')
 
 -- Easier buffer navigation
 nnoremap('<TAB>', ':bn<CR>') -- Next buffer
