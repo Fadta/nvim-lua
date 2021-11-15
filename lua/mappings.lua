@@ -66,6 +66,9 @@ end
 
 vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.smart_tab()', {expr = true, noremap = true})
 --HERE ENDS THIS BULLSHIT
+-- Navigation in completion popup
+inoremap('<C-j>', '<C-n>')
+inoremap('<C-k>', '<C-p>')
 
 
 -- TERMINAL
