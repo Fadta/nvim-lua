@@ -29,7 +29,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   
   -- LANGUAGE FEATURES
-  use 'neovim/nvim-lspconfig'
+  use 'neovim/nvim-lspconfig' -- lsp
+  use 'williamboman/nvim-lsp-installer' -- lsp installer
 
   -- AESTHETHICS
   use 'kyazdani42/nvim-web-devicons'
