@@ -53,3 +53,5 @@ o.scrolloff = 5 -- Display 5 lines above/below cursor
 o.swapfile = false -- Don't create swap files
 o.pastetoggle = '<F2>' -- Enable paste mode
 opt.shortmess:append('c') -- Don't give ins-completion hit-enter prompts
+
+vim.cmd("colorscheme " .. colorscheme) -- Same as "colorscheme $colorscheme"

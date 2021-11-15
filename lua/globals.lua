@@ -1,3 +1,8 @@
+-- CONFIG
+_G.colorscheme = "catppuccin"
+
+
+-- ALIASES
 _G.dump = function(...)
 	print(vim.inspect(...))
 end
