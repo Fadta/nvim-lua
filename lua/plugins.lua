@@ -43,6 +43,10 @@ return require('packer').startup(function(use)
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use 'kdheepak/tabline.nvim'
 
+  -- Misc
+  -- discord rich presence
+  use 'andweeb/presence.nvim'
+
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
     require('packer').sync()
