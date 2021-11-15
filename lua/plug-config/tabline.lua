@@ -1,4 +1,5 @@
-require'tabline'.setup {
+local tabline = require'tabline'
+local config = {
       enable = true,
       options = {
       -- If lualine is installed tabline will use separators configured in lualine by default.
@@ -13,3 +14,5 @@ require'tabline'.setup {
         show_filename_only = true, -- shows base filename only instead of relative path in filename
       }
 }
+
+tabline.setup(config)
