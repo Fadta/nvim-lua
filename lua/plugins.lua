@@ -31,6 +31,11 @@ return require('packer').startup(function(use)
   -- LANGUAGE FEATURES
   use 'neovim/nvim-lspconfig' -- lsp
   use 'williamboman/nvim-lsp-installer' -- lsp installer
+    -- auto-completion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-path'
 
   -- AESTHETHICS
   use 'kyazdani42/nvim-web-devicons'
