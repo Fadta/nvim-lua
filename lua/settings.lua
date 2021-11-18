@@ -41,7 +41,7 @@ o.cursorline = true -- highlights the line where the cursor is
 o.background = 'dark'
 o.showmode = false -- Don't display things like -- INSERT --
 
-o.updatetime = 300 -- Faster completion
+o.updatetime = 50 -- Faster completion
 o.timeoutlen = 500 -- Timeoutlen default is 1000ms
 opt.formatoptions:remove('cro') -- Stop new line continuation of comments
 o.clipboard = 'unnamedplus' -- Copy/paste b/w VIM and everything else
@@ -64,7 +64,7 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- shows spaces
-vim.o.list = true
+--vim.o.list = true
 vim.o.listchars= 'eol:¬,tab:>·,trail:~,extends:>,precedes:<'
 
 -- disable netrw
