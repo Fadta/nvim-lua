@@ -32,6 +32,11 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig' -- lsp
   use 'williamboman/nvim-lsp-installer' -- lsp installer
   use 'nvim-lua/lsp-status.nvim' -- library interfacing with lsp
+  use 'ray-x/lsp_signature.nvim' -- help when typing functions
+  use 'glepnir/lspsaga.nvim'
+
+  -- LANGUAGE EXTRAS
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils' -- helper functions for typescript
 
     -- auto-completion
   use 'hrsh7th/nvim-cmp'
@@ -64,6 +69,7 @@ return require('packer').startup(function(use)
   -- Misc
   -- discord rich presence
   use 'andweeb/presence.nvim'
+  use 'lazytanuki/nvim-mapper'
 
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
