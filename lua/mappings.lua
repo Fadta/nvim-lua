@@ -14,13 +14,10 @@ nnoremap('<M-l>', ':vertical resize +2<CR>')
 nnoremap('<space>', 'za')
 
 -- Open files with Ctrl + p
-nnoremap('<C-p>', ':Files<CR>')
+nnoremap('<C-p>', ':Telescope find_files<CR>')
 
 -- Open vimrc in vertical split
 nnoremap('<leader>ev', ':vsplit $MYVIMRC<CR>')
-
--- Update changes in buffer
-nnoremap('<leader>sv', ':source $MYVMRC')
 
 -- Clear highlights
 nnoremap('//', ':noh<Return>')
@@ -52,8 +49,8 @@ inoremap('jk', '<Esc>')
 inoremap('kj', '<Esc>')
 nnoremap('<C-c>', '<Esc>')
 
--- Open NERDTree
-nnoremap('<leader>n', ':NERDTreeToggle<CR>')
+-- Toggle NvimTree
+nnoremap('<leader>ft', ':NvimTreeToggle<CR>')
 
 -- All this shit for nnoremap <TAB> pumvisible() ? "\C-n" : "\<Tab>"
 local function t(str)
