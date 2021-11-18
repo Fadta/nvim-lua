@@ -31,17 +31,35 @@ return require('packer').startup(function(use)
   -- LANGUAGE FEATURES
   use 'neovim/nvim-lspconfig' -- lsp
   use 'williamboman/nvim-lsp-installer' -- lsp installer
+  use 'nvim-lua/lsp-status.nvim' -- library interfacing with lsp
+
     -- auto-completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
 
+  -- NAVIGATION
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
+  
+
   -- AESTHETHICS
   use 'kyazdani42/nvim-web-devicons'
   use 'catppuccin/nvim'
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
   use 'kdheepak/tabline.nvim'
+  use 'onsails/lspkind-nvim'
 
   -- Misc
   -- discord rich presence
