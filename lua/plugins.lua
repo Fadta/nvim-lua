@@ -28,15 +28,25 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   
+  -- First to load so it can start to document
+  -- use 'lazytanuki/nvim-mapper' -- document mappings
+
   -- LANGUAGE FEATURES
   use 'neovim/nvim-lspconfig' -- lsp
   use 'williamboman/nvim-lsp-installer' -- lsp installer
   use 'nvim-lua/lsp-status.nvim' -- library interfacing with lsp
   use 'ray-x/lsp_signature.nvim' -- help when typing functions
-  use 'glepnir/lspsaga.nvim'
+  use 'tami5/lspsaga.nvim' -- better lsp. mantained Fork of glepnir/lspsaga.nvim
 
   -- LANGUAGE EXTRAS
   use 'jose-elias-alvarez/nvim-lsp-ts-utils' -- helper functions for typescript
+
+  use {'blackCauldron7/surround.nvim',
+    config = function()
+      require"surround".setup {mappings_style = "sandwich",
+      load_keymaps = true}
+    end
+  }-- Replace surrounding characters
 
     -- auto-completion
   use 'hrsh7th/nvim-cmp'
@@ -48,28 +58,28 @@ return require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-  }
+  } -- file tree
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  } -- fuzzy file searcher
   use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
-  }
+  } -- syntax parser
   
 
+  -- Utilities
+
   -- AESTHETHICS
-  use 'kyazdani42/nvim-web-devicons'
-  use 'catppuccin/nvim'
-  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} }
-  use 'kdheepak/tabline.nvim'
-  use 'onsails/lspkind-nvim'
+  use 'kyazdani42/nvim-web-devicons' -- icons
+  use 'catppuccin/nvim' -- theme
+  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true} } -- status bar
+  use 'kdheepak/tabline.nvim' -- Tab bar
+  use 'onsails/lspkind-nvim' -- Icons on autocomplete
 
   -- Misc
-  -- discord rich presence
-  use 'andweeb/presence.nvim'
-  use 'lazytanuki/nvim-mapper'
+  use 'andweeb/presence.nvim' -- discord rich presence
 
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then
