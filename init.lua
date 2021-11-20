@@ -1,4 +1,4 @@
-require 'lua/globals'
+require 'lua/utils/init'
 
 require 'lua/settings'
 require 'lua/mappings'
