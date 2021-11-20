@@ -1,3 +1,4 @@
+local nvim_lsp = require'lspconfig'
 local lsp_status = require('lsp-status')
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
 local remaps = require('lua/lsp/remaps')
@@ -46,6 +47,8 @@ for serverName, config in pairs(servers) do
         end
     end
 
-    server:setup(vim.tbl_deep_extend('force', default_lsp_config, config))
+    nvim_lsp[serverName].setup(vim.tbl_deep_extend('force', default_lsp_config, config))
+
+    -- server:setup(vim.tbl_deep_extend('force', default_lsp_config, config))
     vim.cmd [[ do User LspAttachBuffers ]]
 end
