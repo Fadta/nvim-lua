@@ -10,9 +10,6 @@ nnoremap('<M-k>', ':resize +2<CR>')
 nnoremap('<M-h>', ':vertical resize -2<CR>')
 nnoremap('<M-l>', ':vertical resize +2<CR>')
 
--- Enable folding with spacebar
-nnoremap('<space>', 'za')
-
 -- Open files with Ctrl + p
 nnoremap('<C-p>', ':Telescope find_files<CR>')
 
@@ -66,7 +63,6 @@ vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.smart_tab()', {expr = true, noremap
 -- Navigation in completion popup
 inoremap('<C-j>', '<C-n>')
 inoremap('<C-k>', '<C-p>')
-
 
 -- TERMINAL
 
