@@ -26,8 +26,10 @@ o.splitbelow = true -- hsplits will be below
 o.splitright = true -- vsplits will be right
 go.t_Co = "256" -- Support 256 colors
 o.conceallevel = 0 -- so that `` is visible in md files
--- o.tabstop = 2 -- Insert x spaces for a tab
+
+o.tabstop = 2 -- Insert x spaces for a tab
 o.shiftwidth = 2 -- Number of spaces inserted per indent
+o.expandtab = true -- Replace tabs for spaces
 
 o.smarttab = true -- Tab realizes 2 vs 4
 o.smartindent = true
@@ -64,7 +66,7 @@ vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- shows spaces
---vim.o.list = true
+vim.o.list = true
 vim.o.listchars= 'eol:¬,tab:>·,trail:~,extends:>,precedes:<'
 
 -- disable netrw
