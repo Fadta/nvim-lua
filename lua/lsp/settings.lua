@@ -1,7 +1,7 @@
 local nvim_lsp = require'lspconfig'
 local lsp_status = require('lsp-status')
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
-local remaps = require('lua/lsp/remaps')
+local remaps = require('lsp/remaps')
 local presentCmpNvimLsp, cmpNvimLsp = pcall(require, 'cmp_nvim_lsp')
 
 local function on_attach(client, bufnr)
@@ -19,12 +19,12 @@ local function on_attach(client, bufnr)
 end
 
 local servers = {
-    efm = require('lua/lsp/servers/efm')(),
-    tsserver = require('lua/lsp/servers/tsserver')(on_attach),
-    pyright = require('lua/lsp/servers/pyright')(on_attach),
-    pylsp = require('lua/lsp/servers/pylsp')(on_attach),
-    emmet_ls = require('lua/lsp/servers/emmet_ls')(on_attach),
-    -- cssls = require('lua/lsp/servers/cssls')(on_attach),
+    efm = require('lsp/servers/efm')(),
+    tsserver = require('lsp/servers/tsserver')(on_attach),
+    pyright = require('lsp/servers/pyright')(on_attach),
+    pylsp = require('lsp/servers/pylsp')(on_attach),
+    emmet_ls = require('lsp/servers/emmet_ls')(on_attach),
+    -- cssls = require('lsp/servers/cssls')(on_attach),
 }
 
 -- extensibility for autocomplete

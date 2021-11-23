@@ -1,2 +1,2 @@
-require 'lua/lsp/settings'
-require 'lua/lsp/lspsaga/settings'
+require 'lsp/settings'
+require 'lsp/lspsaga/settings'

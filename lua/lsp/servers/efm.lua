@@ -1,7 +1,7 @@
 local lsp = require('lspconfig')
 
-local prettier_d = require "lua/lsp/servers/formatters/prettier_d"
-local eslint_d = require "lua/lsp/servers/linters/eslint_d"
+local prettier_d = require "lsp/servers/formatters/prettier_d"
+local eslint_d = require "lsp/servers/linters/eslint_d"
 
 local formatter = prettier_d
 local linter = eslint_d

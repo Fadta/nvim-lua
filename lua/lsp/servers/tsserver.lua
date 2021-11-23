@@ -1,4 +1,4 @@
-local remaps = require 'lua/lsp/remaps'
+local remaps = require 'lsp/remaps'
 
 return function(on_attach)
   return{

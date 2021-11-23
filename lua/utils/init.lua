@@ -1,1 +1,1 @@
-require 'lua/utils/globals'
+require 'utils/globals'
