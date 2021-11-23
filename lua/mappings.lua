@@ -10,8 +10,8 @@ nnoremap('<M-k>', ':resize +2<CR>')
 nnoremap('<M-h>', ':vertical resize -2<CR>')
 nnoremap('<M-l>', ':vertical resize +2<CR>')
 
--- Open files with Ctrl + p
-nnoremap('<C-p>', ':Telescope find_files<CR>')
+-- Open files with Ctrl + o
+nnoremap('<C-o>', ':Telescope find_files<CR>')
 
 -- Open vimrc in vertical split
 nnoremap('<leader>ev', ':vsplit $MYVIMRC<CR>')
