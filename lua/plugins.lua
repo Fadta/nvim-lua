@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- NAVIGATION
   use {
@@ -70,6 +71,8 @@ return require('packer').startup(function(use)
   
 
   -- Utilities
+  use 'L3MON4D3/LuaSnip' -- snippets
+  use 'norcalli/nvim-colorizer.lua' -- show hex colors
 
   -- AESTHETHICS
   use 'kyazdani42/nvim-web-devicons' -- icons
