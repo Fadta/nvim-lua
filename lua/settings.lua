@@ -29,7 +29,7 @@ o.conceallevel = 0 -- so that `` is visible in md files
 
 o.tabstop = 2 -- Insert x spaces for a tab
 o.shiftwidth = 2 -- Number of spaces inserted per indent
-o.expandtab = true -- Replace tabs for spaces
+o.expandtab = false -- Replace tabs for spaces
 
 o.smarttab = true -- Tab realizes 2 vs 4
 o.smartindent = true
