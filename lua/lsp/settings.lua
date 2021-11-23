@@ -23,6 +23,8 @@ local servers = {
     tsserver = require('lua/lsp/servers/tsserver')(on_attach),
     pyright = require('lua/lsp/servers/pyright')(on_attach),
     pylsp = require('lua/lsp/servers/pylsp')(on_attach),
+    emmet_ls = require('lua/lsp/servers/emmet_ls')(on_attach),
+    -- cssls = require('lua/lsp/servers/cssls')(on_attach),
 }
 
 -- extensibility for autocomplete
