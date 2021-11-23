@@ -47,6 +47,10 @@ for serverName, config in pairs(servers) do
         end
     end
 
+    if nvim_lsp[serverName] == nil then
+      dump(serverName)
+    end
+
     nvim_lsp[serverName].setup(vim.tbl_deep_extend('force', default_lsp_config, config))
 
     -- server:setup(vim.tbl_deep_extend('force', default_lsp_config, config))
