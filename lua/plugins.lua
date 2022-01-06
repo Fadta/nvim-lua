@@ -48,12 +48,15 @@ return require('packer').startup(function(use)
     end
   }-- Replace surrounding characters
 
+	use 'windwp/nvim-ts-autotag'
+
     -- auto-completion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-path'
   use 'saadparwaiz1/cmp_luasnip'
+	use 'windwp/nvim-autopairs'
 
   -- NAVIGATION
   use {
@@ -73,6 +76,7 @@ return require('packer').startup(function(use)
   -- Utilities
   use 'L3MON4D3/LuaSnip' -- snippets
   use 'norcalli/nvim-colorizer.lua' -- show hex colors
+	use 'famiu/bufdelete.nvim' -- delete buffers easily
 
   -- AESTHETHICS
   use 'kyazdani42/nvim-web-devicons' -- icons
