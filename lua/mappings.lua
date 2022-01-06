@@ -35,7 +35,7 @@ nnoremap('<C-q>', ':q<CR>')
 -- Easier buffer navigation
 nnoremap('<TAB>', ':bn<CR>') -- Next buffer
 nnoremap('<S-TAB>', ':bp<CR>') -- Previous buffer
-nnoremap('<leader>q', ':bd<CR>') -- Close buffer
+nnoremap('<leader>q', ':Bdelete<CR>') -- Close buffer
 
 -- Better tabbing
 vnoremap('>', '>gv')
