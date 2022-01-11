@@ -1,9 +1,11 @@
 local nvim_lsp = require'lspconfig'
-local lsp_status = require('lsp-status')
+local lsp_status = require'lsp-status'
+local lsp_installer = require'nvim-lsp-installer'
 local lsp_installer_servers = require 'nvim-lsp-installer.servers'
-local remaps = require('lsp/remaps')
+local remaps = require'lsp/remaps'
 local presentCmpNvimLsp, cmpNvimLsp = pcall(require, 'cmp_nvim_lsp')
 
+-- Make buffer have this settings when LSP is attached to buffer
 local function on_attach(client, bufnr)
     remaps.set_default(client, bufnr)
     lsp_status.on_attach(client, bufnr)
@@ -18,13 +20,17 @@ local function on_attach(client, bufnr)
     })
 end
 
+-- Available LSP servers if want to edit add to this list
+-- with their configs
 local servers = {
     efm = require('lsp/servers/efm')(),
     tsserver = require('lsp/servers/tsserver')(on_attach),
-    pyright = require('lsp/servers/pyright')(on_attach),
-    pylsp = require('lsp/servers/pylsp')(on_attach),
+    pyright = {},
+    pylsp = {},
     emmet_ls = require('lsp/servers/emmet_ls')(on_attach),
-    -- cssls = require('lsp/servers/cssls')(on_attach),
+    sumneko_lua = {},
+    cssls = require('lsp/servers/cssls')(on_attach),
+    clangd = {},
 }
 
 -- extensibility for autocomplete
@@ -39,22 +45,29 @@ if presentCmpNvimLsp then
                                           .make_client_capabilities()))
 end
 
+-- universal lsp_config
 local default_lsp_config = {on_attach = on_attach, capabilities}
+
+-- do setup for all specified servers
 for serverName, config in pairs(servers) do
-    local ok, server = lsp_installer_servers.get_server(serverName)
-    if ok then
+    local serverAvailable, server = lsp_installer_servers.get_server(serverName)
+    if serverAvailable then
+        server:on_ready(function ()
+            -- unify tables, overwriting default_lsp_config with config if conflicts arise
+            local opts = vim.tbl_deep_extend('force', default_lsp_config, config)
+            server:setup(opts)
+        end)
         if not server:is_installed() then
             print('installing ' .. serverName)
             server:install()
         end
     end
 
+    -- if serverName is not in lspconfig then error
     if nvim_lsp[serverName] == nil then
       dump(serverName)
     end
 
-    nvim_lsp[serverName].setup(vim.tbl_deep_extend('force', default_lsp_config, config))
-
-    -- server:setup(vim.tbl_deep_extend('force', default_lsp_config, config))
+    -- Black magic ^-^
     vim.cmd [[ do User LspAttachBuffers ]]
 end
