@@ -52,6 +52,13 @@ local default_lsp_config = {on_attach = on_attach, capabilities}
 for serverName, config in pairs(servers) do
     local serverAvailable, server = lsp_installer_servers.get_server(serverName)
     if serverAvailable then
+        server:on_ready(function()
+            local opts = vim.tbl_deep_extend('force', default_lsp_config, config)
+            -- Temporal fix for LSP diagnostics working only on buffer open
+            -- look for differences at setup vs setup_lsp
+            server:setup_lsp(opts)
+        end)
+
         if not server:is_installed() then
             print('installing ' .. serverName)
             server:install()
@@ -62,12 +69,6 @@ for serverName, config in pairs(servers) do
     if nvim_lsp[serverName] == nil then
       dump(serverName)
     end
-
-    local opts = vim.tbl_deep_extend('force', default_lsp_config, config)
-
-    -- Temporal fix for LSP diagnostics working only on buffer open
-    -- look for differences at setup vs setup_lsp
-    server:setup_lsp(opts)
 
     -- Black magic ^-^
     vim.cmd [[ do User LspAttachBuffers ]]
